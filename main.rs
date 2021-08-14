@@ -11,12 +11,15 @@
  * @return: bool
  * if it is a valid credit card number
  */
- fn validate_card(card_number: u64) -> bool {
+fn validate_card(card_number: u64) -> bool {
     let max: u64 = 9999999999999999;
     // check length (<10e17)
     if card_number > max {
         return false;
     }
+
+    // TODO: check if institution/issuer numbers are valid
+    // if substring 0-6 in valid issuer list
 
     // check digit using the Luhn algorithm (see https://en.wikipedia.org/wiki/Luhn_algorithm)
     // gets digits (floor division)
